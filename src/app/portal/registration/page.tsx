@@ -76,20 +76,7 @@ export default function RegistrationWizard() {
     setTimeout(() => setToast(null), 5000);
   };
 
-  // Toast Component
-  const Toast = () => {
-    if (!toast) return null;
-    return (
-      <div className={`fixed bottom-8 right-8 px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 backdrop-blur-md border animate-in slide-in-from-bottom-5
-        ${toast.type === 'success' 
-          ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-100' 
-          : 'bg-red-500/20 border-red-500/50 text-red-100'}`}
-      >
-        {toast.type === 'success' ? <CheckCircle2 className="text-emerald-400" /> : <AlertCircle className="text-red-400" />}
-        <span className="font-semibold">{toast.message}</span>
-      </div>
-    );
-  };
+
 
   return (
     <div className="h-full flex flex-col relative w-full pt-4">
@@ -296,7 +283,16 @@ export default function RegistrationWizard() {
         )}
       </div>
 
-      <Toast />
+      {toast && (
+        <div className={`fixed bottom-8 right-8 px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 backdrop-blur-md border animate-in slide-in-from-bottom-5
+          ${toast.type === 'success' 
+            ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-100' 
+            : 'bg-red-500/20 border-red-500/50 text-red-100'}`}
+        >
+          {toast.type === 'success' ? <CheckCircle2 className="text-emerald-400" /> : <AlertCircle className="text-red-400" />}
+          <span className="font-semibold">{toast.message}</span>
+        </div>
+      )}
     </div>
   );
 }

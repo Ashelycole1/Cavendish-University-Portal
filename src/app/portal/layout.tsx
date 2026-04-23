@@ -91,6 +91,7 @@ export default function PortalLayout({
               <p className="text-xs text-[#00B3E6]">BSc. Computer Science</p>
             </div>
             <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center relative overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="https://ui-avatars.com/api/?name=John+Doe&background=00B3E6&color=fff" alt="Profile" className="w-full h-full object-cover" />
             </div>
           </div>
